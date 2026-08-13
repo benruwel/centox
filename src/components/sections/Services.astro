@@ -1,0 +1,35 @@
+---
+import { type ServiceId, serviceCategories } from "../../data/services";
+import { SECTION_IDS } from "../../data/site";
+import Section from "../ui/Section.astro";
+import ServiceCard from "./ServiceCard.astro";
+
+const LAYOUT: Record<ServiceId, string> = {
+  human: "sm:order-1",
+  consulting: "sm:order-2",
+  industrial: "sm:order-3",
+  environmental: "sm:order-4",
+  food: "sm:order-5 sm:col-span-2",
+};
+
+/** The odd card out, which spans both columns and so uses the horizontal layout. */
+const WIDE_ID: ServiceId = "food";
+---
+
+<Section
+  id={SECTION_IDS.services}
+  eyebrow="Capabilities"
+  heading="Our Services"
+>
+  <ul role="list" class="grid gap-px bg-hairline sm:grid-cols-2">
+    {
+      serviceCategories.map((category) => (
+        <ServiceCard
+          category={category}
+          wide={category.id === WIDE_ID}
+          class={LAYOUT[category.id]}
+        />
+      ))
+    }
+  </ul>
+</Section>

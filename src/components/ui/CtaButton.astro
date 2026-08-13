@@ -1,0 +1,35 @@
+---
+import Icon from "./Icon.astro";
+
+/**
+ * Encodes the brand contrast rule in one place: secondary-teal is only 3.01:1 on
+ * white, so it is never a button background. Slate on white is 10.98:1.
+ */
+interface Props {
+	href: string;
+	variant?: "solid" | "onDark";
+	class?: string;
+}
+
+const { href, variant = "solid", class: className = "" } = Astro.props;
+
+const variants = {
+	solid: "bg-primary-slate text-white hover:bg-ink",
+	onDark: "bg-white text-primary-slate hover:bg-muted-invert",
+} as const;
+---
+
+<a
+	href={href}
+	class:list={[
+		"group inline-flex items-center gap-2 px-6 py-3 text-sm font-medium motion-safe:transition-colors",
+		variants[variant],
+		className,
+	]}
+>
+	<slot />
+	<Icon
+		name="arrow-up-right"
+		class="size-4 motion-safe:transition-transform motion-safe:group-hover:-translate-y-px motion-safe:group-hover:translate-x-px"
+	/>
+</a>

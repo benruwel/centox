@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+	/* brand */
+	--color-primary-slate: #2c3e50;
+	--color-secondary-teal: #4da29e;
+
+	/* surfaces */
+	--color-paper: #ffffff;
+	--color-surface-subtle: #f4f5f6;
+	--color-hairline: #e4e7ea;
+	--color-ink: #101215;
+
+	/* text — contrast verified: muted 5.48:1 on paper, muted-invert 8.9:1 on ink */
+	--color-muted: #5b6b7a;
+	--color-muted-invert: #a8b3bd;
+
+	/* fonts — --font-sans drives Tailwind's --default-font-family on <html> */
+	--font-sans: var(--font-work-sans);
+	--font-display: var(--font-montserrat);
+}
+
+@layer base {
+	body {
+		background-color: var(--color-paper);
+		color: var(--color-muted);
+		font-size: 0.875rem;
+		line-height: 1.65;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	@media (min-width: 48rem) {
+		body {
+			font-size: 1rem;
+		}
+	}
+
+	/*
+	 * Headings carry font + weight + colour, but NOT size — size lives at the call
+	 * site so hero/section/card scales can differ. Colour here is overridable by a
+	 * utility class because @layer base loses to @layer utilities, which is what
+	 * lets the dark footer band use text-white.
+	 */
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		color: var(--color-primary-slate);
+		letter-spacing: -0.02em;
+	}
+
+	strong {
+		color: var(--color-primary-slate);
+		font-weight: 600;
+	}
+
+	:focus-visible {
+		outline: 2px solid var(--color-secondary-teal);
+		outline-offset: 2px;
+	}
+
+	html {
+		/* clears the sticky header when an in-page anchor is followed */
+		scroll-padding-top: 5rem;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+}

@@ -1,0 +1,20 @@
+---
+import { whyUs } from "../../data/sections";
+import { SECTION_IDS } from "../../data/site";
+import Icon from "../ui/Icon.astro";
+import Section from "../ui/Section.astro";
+---
+
+<Section id={SECTION_IDS.whyUs} eyebrow="Advantage" heading="Why Choose Us?">
+	{/* role="list" restores semantics that preflight's list-style:none strips in Safari/VoiceOver */}
+	<ul role="list" class="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+		{
+			whyUs.map((item) => (
+				<li class="flex items-start gap-3 border-t border-hairline pt-5">
+					<Icon name="check" class="mt-0.5 size-4 text-secondary-teal" />
+					<span class="font-medium text-primary-slate">{item}</span>
+				</li>
+			))
+		}
+	</ul>
+</Section>

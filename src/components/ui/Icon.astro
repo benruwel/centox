@@ -1,0 +1,25 @@
+---
+interface Props {
+	name: "check" | "menu" | "close" | "arrow-up-right";
+	class?: string;
+}
+
+const { name, class: className = "" } = Astro.props;
+---
+
+<svg
+	class:list={["shrink-0", className]}
+	viewBox="0 0 24 24"
+	fill="none"
+	stroke="currentColor"
+	stroke-width="1.75"
+	stroke-linecap="round"
+	stroke-linejoin="round"
+	aria-hidden="true"
+	focusable="false"
+>
+	{name === "check" && <path d="m4 12.5 5 5L20 6.5" />}
+	{name === "menu" && <path d="M4 7h16M4 12h16M4 17h16" />}
+	{name === "close" && <path d="M6 6l12 12M18 6L6 18" />}
+	{name === "arrow-up-right" && <path d="M7 17 17 7M9 7h8v8" />}
+</svg>

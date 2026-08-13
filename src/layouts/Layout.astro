@@ -1,23 +1,74 @@
+---
+import { Font } from "astro:assets";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+import Contact from "../components/sections/Contact.astro";
+import { siteConfig } from "../data/site";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title, description = siteConfig.description } = Astro.props;
+
+const pageTitle = title
+	? `${title} | ${siteConfig.name}`
+	: siteConfig.defaultTitle;
+const canonical = Astro.site
+	? new URL(Astro.url.pathname, Astro.site).href
+	: undefined;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<meta name="theme-color" content="#2c3e50" />
+
+		<title>{pageTitle}</title>
+		<meta name="description" content={description} />
+		{canonical && <link rel="canonical" href={canonical} />}
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={siteConfig.name} />
+		<meta property="og:title" content={pageTitle} />
+		<meta property="og:description" content={description} />
+		{canonical && <meta property="og:url" content={canonical} />}
+		<meta name="twitter:card" content="summary_large_image" />
+
+		{/* Work Sans is body copy and above the fold, so it preloads. Montserrat is
+		headings only, which tolerate a swap better than body text, and preloading
+		both would have them compete for bandwidth. */}
+		<Font cssVariable="--font-work-sans" preload />
+		<Font cssVariable="--font-montserrat" />
+
+		{/* Valid only in <head>: keeps the mobile nav usable without JS. Unlayered
+		!important is needed to beat preflight's layered `[hidden] { display: none !important }`. */}
+		<noscript>
+			<style>
+				@media (max-width: 47.999rem) {
+					#nav-menu {
+						display: block !important;
+					}
+				}
+			</style>
+		</noscript>
 	</head>
 	<body>
-		<slot />
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-primary-slate focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-white"
+		>
+			Skip to content
+		</a>
+		<SiteHeader />
+		<main id="main">
+			<slot />
+		</main>
+		<Contact />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

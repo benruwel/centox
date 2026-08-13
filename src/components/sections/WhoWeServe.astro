@@ -1,0 +1,17 @@
+---
+import { whoWeServe } from "../../data/sections";
+import { SECTION_IDS } from "../../data/site";
+import Section from "../ui/Section.astro";
+---
+
+<Section id={SECTION_IDS.whoWeServe} eyebrow="Clients" heading="Who We Serve">
+	<ul role="list" class="grid gap-px bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+		{
+			whoWeServe.map((item) => (
+				<li class="bg-paper px-5 py-8 font-display text-base font-medium text-primary-slate">
+					{item}
+				</li>
+			))
+		}
+	</ul>
+</Section>

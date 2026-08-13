@@ -1,0 +1,52 @@
+---
+import type { SectionId } from "../../data/site";
+import Container from "./Container.astro";
+import Eyebrow from "./Eyebrow.astro";
+
+interface Props {
+  id: SectionId;
+  eyebrow: string;
+  heading: string;
+  tone?: "light" | "dark";
+  divider?: boolean;
+  class?: string;
+}
+
+const {
+  id,
+  eyebrow,
+  heading,
+  tone = "light",
+  divider = true,
+  class: className = "",
+} = Astro.props;
+
+const headingId = `${id}-heading`;
+---
+
+<section
+  id={id}
+  aria-labelledby={headingId}
+  class:list={[
+    "scroll-mt-24 py-20 md:py-28",
+    tone === "dark" ? "bg-ink text-muted-invert" : "bg-paper",
+    divider && tone === "light" && "border-t border-hairline",
+    className,
+  ]}
+>
+  <Container>
+    <Eyebrow label={eyebrow} tone={tone} />
+    <h2
+      id={headingId}
+      class:list={[
+        "mt-6 max-w-3xl font-display text-3xl font-semibold sm:text-4xl",
+        tone === "dark" && "text-white",
+      ]}
+    >
+      {heading}
+    </h2>
+    <div class="mt-12 md:mt-16">
+      <slot />
+    </div>
+  </Container>
+</section>

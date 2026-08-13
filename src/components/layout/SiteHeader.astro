@@ -1,0 +1,92 @@
+---
+import { navLinks } from "../../data/site";
+import Container from "../ui/Container.astro";
+import Icon from "../ui/Icon.astro";
+import Logo from "./Logo.astro";
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-hairline bg-paper/90 backdrop-blur"
+>
+  <Container class="flex h-16 items-center justify-between gap-4">
+    <Logo />
+
+    <nav aria-label="Primary" class="hidden items-center gap-8 md:flex">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-muted motion-safe:transition-colors hover:text-primary-slate"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <button
+      id="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+      aria-label="Menu"
+      class="group -mr-2 inline-flex size-10 items-center justify-center text-primary-slate md:hidden"
+    >
+      <Icon name="menu" class="size-6 group-aria-expanded:hidden" />
+      <Icon name="close" class="hidden size-6 group-aria-expanded:block" />
+    </button>
+  </Container>
+
+  <div id="nav-menu" hidden class="border-t border-hairline md:hidden">
+    <Container>
+      <ul role="list" class="divide-y divide-hairline py-1">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="block py-3.5 text-sm font-medium text-primary-slate"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById("nav-toggle");
+  const menu = document.getElementById("nav-menu");
+
+  if (toggle && menu) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute("aria-expanded", String(open));
+      menu.toggleAttribute("hidden", !open);
+      document.documentElement.classList.toggle("overflow-hidden", open);
+    };
+
+    const isOpen = () => toggle.getAttribute("aria-expanded") === "true";
+
+    toggle.addEventListener("click", () => setOpen(!isOpen()));
+
+    menu.addEventListener("click", (event) => {
+      if ((event.target as HTMLElement).closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen()) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window
+      .matchMedia("(min-width: 48rem)")
+      .addEventListener("change", (event) => {
+        if (event.matches) setOpen(false);
+      });
+  }
+</script>

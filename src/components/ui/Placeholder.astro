@@ -1,0 +1,34 @@
+---
+/**
+ * Gray image placeholder.
+ *
+ * TODO(client): every one of these is a slot awaiting real artwork. The explicit
+ * aspect-ratio means dropping an image in causes no layout shift — match the
+ * `ratio` prop to the image you supply.
+ *
+ * aspect-ratio is set via inline style rather than an `aspect-[…]` class because
+ * Tailwind scans source statically and cannot see a class built from a prop.
+ */
+interface Props {
+	/** CSS aspect-ratio, e.g. "16/9". */
+	ratio?: string;
+	label?: string;
+	class?: string;
+}
+
+const { ratio = "16/9", label, class: className = "" } = Astro.props;
+---
+
+<div
+	aria-hidden="true"
+	style={`aspect-ratio: ${ratio};`}
+	class:list={["flex w-full items-center justify-center bg-surface-subtle", className]}
+>
+	{
+		label && (
+			<span class="px-4 text-center text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-muted/60">
+				{label}
+			</span>
+		)
+	}
+</div>

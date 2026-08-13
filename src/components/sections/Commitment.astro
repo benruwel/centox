@@ -1,0 +1,9 @@
+---
+import { commitment } from "../../data/sections";
+import { SECTION_IDS } from "../../data/site";
+import Section from "../ui/Section.astro";
+---
+
+<Section id={SECTION_IDS.commitment} eyebrow="Commitment" heading="Our Commitment">
+	<p class="max-w-3xl text-lg md:text-xl">{commitment}</p>
+</Section>

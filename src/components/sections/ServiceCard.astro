@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import type { ServiceCategory } from "../../data/services";
+
+interface Props {
+  category: ServiceCategory;
+  wide?: boolean;
+  class?: string;
+}
+
+const { category, wide = false, class: className = "" } = Astro.props;
+---
+
+<li class:list={["flex flex-col bg-paper", wide && "sm:flex-row", className]}>
+  {/*
+    Fixed 16/9 above the text, so the grid rows line up whatever the source
+    ratio is. The wide card instead lets the photo stretch to the height of the
+    copy beside it — hence aspect-auto. object-cover crops rather than distorts
+    in both cases.
+  */}
+  <Image
+    src={category.image}
+    alt={category.imageAlt}
+    widths={[320, 480, 640]}
+    sizes="(min-width: 640px) 50vw, 100vw"
+    loading="lazy"
+    decoding="async"
+    class:list={[
+      "aspect-video w-full object-cover",
+      wide && "sm:aspect-auto sm:w-1/2 sm:self-stretch",
+    ]}
+  />
+  <div class="flex flex-1 flex-col p-6 md:p-8">
+    <h3 class="text-lg">{category.title}</h3>
+    <p class="mt-2 text-sm">{category.summary}</p>
+    <ul
+      role="list"
+      class:list={[
+        "mt-6 space-y-2.5 border-t border-hairline pt-6",
+        wide && "sm:columns-2 sm:gap-x-8",
+      ]}
+    >
+      {
+        category.items.map((item) => (
+          <li class="flex gap-3 text-sm">
+            <span
+              aria-hidden="true"
+              class="mt-[0.6em] size-1 shrink-0 rounded-full bg-secondary-teal"
+            />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</li>

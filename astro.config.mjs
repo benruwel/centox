@@ -1,10 +1,28 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
 
-import react from '@astrojs/react';
-import partytown from '@astrojs/partytown';
+import tailwindcss from "@tailwindcss/vite";
+import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), partytown()]
+	// TODO(client): confirm the production domain. Until this is real, canonical and
+	// og:url tags are omitted rather than emitted wrong.
+	site: "https://centox.co.ke",
+
+	vite: {
+		plugins: [tailwindcss()],
+	},
+
+	fonts: [
+		{
+			provider: fontProviders.fontsource(),
+			name: "Work Sans",
+			cssVariable: "--font-work-sans",
+		},
+		{
+			provider: fontProviders.fontsource(),
+			name: "Montserrat",
+			cssVariable: "--font-montserrat",
+		},
+	],
 });
