@@ -1,5 +1,5 @@
 // @ts-check
-import vercel from "@astrojs/vercel";
+import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 
@@ -8,6 +8,10 @@ export default defineConfig({
   // TODO(client): confirm the production domain. Until this is real, canonical and
   // og:url tags are omitted rather than emitted wrong.
   site: "https://centox.co.ke",
+
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
 
   vite: {
     plugins: [tailwindcss()],
@@ -25,8 +29,4 @@ export default defineConfig({
       cssVariable: "--font-montserrat",
     },
   ],
-
-  adapter: vercel({
-    imageService: true,
-  }),
 });
