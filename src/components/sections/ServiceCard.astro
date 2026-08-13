@@ -3,25 +3,44 @@ import { Image } from "astro:assets";
 import type { ServiceCategory } from "../../data/services";
 
 interface Props {
-  category: ServiceCategory;
-  wide?: boolean;
-  class?: string;
+	category: ServiceCategory;
+	wide?: boolean;
+	class?: string;
 }
 
 const { category, wide = false, class: className = "" } = Astro.props;
+
+const responsiveWidths = [
+	320,
+	480,
+	640,
+	960,
+	1280,
+	1600,
+	1920,
+	2560,
+	3200,
+	3840,
+	category.image.width,
+].filter(
+	(width, index, widths) =>
+		width <= category.image.width && widths.indexOf(width) === index,
+);
 ---
 
 <li class:list={["flex flex-col bg-paper", wide && "sm:flex-row", className]}>
-  {/*
+  {
+    /*
     Fixed 16/9 above the text, so the grid rows line up whatever the source
     ratio is. The wide card instead lets the photo stretch to the height of the
     copy beside it — hence aspect-auto. object-cover crops rather than distorts
     in both cases.
-  */}
+  */
+  }
   <Image
     src={category.image}
     alt={category.imageAlt}
-    widths={[320, 480, 640]}
+    widths={responsiveWidths}
     sizes="(min-width: 640px) 50vw, 100vw"
     loading="lazy"
     decoding="async"
@@ -30,7 +49,7 @@ const { category, wide = false, class: className = "" } = Astro.props;
       wide && "sm:aspect-auto sm:w-1/2 sm:self-stretch",
     ]}
   />
-  <div class="flex flex-1 flex-col p-6 md:p-8">
+  <div class="flex flex-1 flex-col py-6 sm:p-6 md:p-8">
     <h3 class="text-lg">{category.title}</h3>
     <p class="mt-2 text-sm">{category.summary}</p>
     <ul
