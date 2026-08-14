@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import type { ServiceCategory } from "../../data/services";
+
+interface Props {
+  category: ServiceCategory;
+  reverse?: boolean;
+}
+
+const { category, reverse = false } = Astro.props;
+
+const responsiveWidths = [
+  320,
+  480,
+  640,
+  960,
+  1280,
+  1600,
+  category.image.width,
+].filter(
+  (width, index, widths) =>
+    width <= category.image.width && widths.indexOf(width) === index,
+);
+---
+
+<article
+  id={category.sectionId}
+  aria-labelledby={`${category.sectionId}-heading`}
+  class="scroll-mt-24 border-t border-hairline py-14 first:border-t-0 first:pt-0 md:py-20"
+>
+  <div class="grid items-start gap-8 lg:grid-cols-2 lg:gap-16">
+    <Image
+      src={category.image}
+      alt={category.imageAlt}
+      widths={responsiveWidths}
+      sizes="(min-width: 1024px) 50vw, 100vw"
+      loading="lazy"
+      decoding="async"
+      class:list={["aspect-4/3 w-full object-cover", reverse && "lg:order-2"]}
+    />
+
+    <div class:list={[reverse && "lg:order-1"]}>
+      <h2 id={`${category.sectionId}-heading`} class="text-2xl sm:text-3xl">
+        {category.title}
+      </h2>
+      <p class="mt-4 max-w-[60ch]">{category.longerDescription}</p>
+
+      <ul role="list" class="mt-4 grid gap-3 sm:grid-cols-2">
+        {
+          category.items.map((item) => (
+            <li class="flex gap-3 text-sm">
+              <span
+                aria-hidden="true"
+                class="mt-[0.65em] size-1 shrink-0 rounded-full bg-secondary-teal"
+              />
+              <span>{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</article>

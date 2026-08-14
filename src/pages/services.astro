@@ -1,0 +1,50 @@
+---
+import ServiceDetails from "../components/sections/ServiceDetails.astro";
+import Container from "../components/ui/Container.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import { serviceCategories } from "../data/services";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Toxicology Services"
+  description="Explore CENTOX Kenya's human, industrial, food and environmental toxicology services, consulting, and compliance support."
+>
+  <header class="border-b border-hairline bg-surface-subtle py-16 md:py-24">
+    <Container>
+      <Eyebrow label="Capabilities" />
+      <h1 class="mt-6 max-w-3xl text-4xl sm:text-5xl">Our Services</h1>
+      <p class="mt-6 max-w-2xl text-base md:text-lg">
+        Toxicology testing, assessment, and advisory support for healthcare,
+        industry, food safety, environmental work, and regulatory compliance.
+      </p>
+
+      <nav aria-label="Services on this page" class="mt-10">
+        <ul role="list" class="flex flex-wrap gap-2">
+          {
+            serviceCategories.map((category) => (
+              <li>
+                <a
+                  href={`#${category.sectionId}`}
+                  class="inline-flex border border-hairline bg-paper px-4 py-2 text-sm font-medium text-primary-slate motion-safe:transition-colors hover:border-secondary-teal"
+                >
+                  {category.title}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </Container>
+  </header>
+
+  <section aria-label="Service details" class="py-16 md:py-24">
+    <Container>
+      {
+        serviceCategories.map((category, index) => (
+          <ServiceDetails category={category} reverse={index % 2 === 1} />
+        ))
+      }
+    </Container>
+  </section>
+</Layout>

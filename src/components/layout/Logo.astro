@@ -4,15 +4,15 @@ import mark from "../../assets/centox-mark.png";
 import { SECTION_IDS, siteConfig } from "../../data/site";
 
 interface Props {
-  tone?: "light" | "dark";
-  class?: string;
+	tone?: "light" | "dark";
+	class?: string;
 }
 
 const { tone = "light", class: className = "" } = Astro.props;
 ---
 
 <a
-  href={`#${SECTION_IDS.hero}`}
+  href={`/#${SECTION_IDS.hero}`}
   aria-label={`${siteConfig.name}, home`}
   class:list={["inline-flex items-center gap-2.5", className]}
 >

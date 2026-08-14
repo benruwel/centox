@@ -3,18 +3,39 @@ import { whyUs } from "../../data/sections";
 import { SECTION_IDS } from "../../data/site";
 import Icon from "../ui/Icon.astro";
 import Section from "../ui/Section.astro";
+
+const CARD_LAYOUT = {
+	turnaround: "md:col-span-3",
+	technology: "md:col-span-3",
+	accuracy: "md:col-span-4",
+	confidentiality: "md:col-span-2",
+	professionals: "md:col-span-2",
+	quality: "md:col-span-4",
+} as const;
 ---
 
 <Section id={SECTION_IDS.whyUs} eyebrow="Advantage" heading="Why Choose Us?">
-	{/* role="list" restores semantics that preflight's list-style:none strips in Safari/VoiceOver */}
-	<ul role="list" class="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-		{
-			whyUs.map((item) => (
-				<li class="flex items-start gap-3 border-t border-hairline pt-5">
-					<Icon name="check" class="mt-0.5 size-4 text-secondary-teal" />
-					<span class="font-medium text-primary-slate">{item}</span>
-				</li>
-			))
-		}
-	</ul>
+  {
+    /* role="list" restores semantics that preflight's list-style:none strips in Safari/VoiceOver */
+  }
+  <ul role="list" class="grid gap-2 md:grid-cols-6">
+    {
+      whyUs.map((item) => (
+        <li
+          class:list={[
+            "flex min-h-52 flex-col border border-hairline bg-surface-subtle p-6 sm:p-8",
+            CARD_LAYOUT[item.id],
+          ]}
+        >
+          <div class=" text-secondary-teal">
+            <Icon name={item.icon} class="size-7" />
+          </div>
+          <div class="mt-auto pt-10">
+            <h3 class="text-lg">{item.title}</h3>
+            <p class="mt-2 max-w-[52ch] text-sm">{item.description}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
 </Section>
