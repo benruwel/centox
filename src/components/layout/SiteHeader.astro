@@ -1,7 +1,7 @@
 ---
+import { Menu, X } from "@lucide/astro";
 import { navLinks } from "../../data/site";
 import Container from "../ui/Container.astro";
-import Icon from "../ui/Icon.astro";
 import Logo from "./Logo.astro";
 ---
 
@@ -32,8 +32,16 @@ import Logo from "./Logo.astro";
       aria-label="Menu"
       class="group -mr-2 inline-flex size-10 items-center justify-center text-primary-slate md:hidden"
     >
-      <Icon name="menu" class="size-6 group-aria-expanded:hidden" />
-      <Icon name="close" class="hidden size-6 group-aria-expanded:block" />
+      <Menu
+        aria-hidden="true"
+        stroke-width={1.75}
+        class="size-6 group-aria-expanded:hidden"
+      />
+      <X
+        aria-hidden="true"
+        stroke-width={1.75}
+        class="hidden size-6 group-aria-expanded:block"
+      />
     </button>
   </Container>
 

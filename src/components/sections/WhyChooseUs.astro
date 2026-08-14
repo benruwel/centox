@@ -1,7 +1,14 @@
 ---
+import {
+	Clock,
+	Lock,
+	Microscope,
+	ShieldCheck,
+	Target,
+	Users,
+} from "@lucide/astro";
 import { whyUs } from "../../data/sections";
 import { SECTION_IDS } from "../../data/site";
-import Icon from "../ui/Icon.astro";
 import Section from "../ui/Section.astro";
 
 const CARD_LAYOUT = {
@@ -12,6 +19,15 @@ const CARD_LAYOUT = {
 	professionals: "md:col-span-2",
 	quality: "md:col-span-4",
 } as const;
+
+const ITEM_ICONS = {
+	turnaround: Clock,
+	technology: Microscope,
+	accuracy: Target,
+	confidentiality: Lock,
+	professionals: Users,
+	quality: ShieldCheck,
+} as const;
 ---
 
 <Section id={SECTION_IDS.whyUs} eyebrow="Advantage" heading="Why Choose Us?">
@@ -20,22 +36,30 @@ const CARD_LAYOUT = {
   }
   <ul role="list" class="grid gap-2 md:grid-cols-6">
     {
-      whyUs.map((item) => (
-        <li
-          class:list={[
-            "flex min-h-52 flex-col border border-hairline bg-surface-subtle p-6 sm:p-8",
-            CARD_LAYOUT[item.id],
-          ]}
-        >
-          <div class=" text-secondary-teal">
-            <Icon name={item.icon} class="size-7" />
-          </div>
-          <div class="mt-auto pt-10">
-            <h3 class="text-lg">{item.title}</h3>
-            <p class="mt-2 max-w-[52ch] text-sm">{item.description}</p>
-          </div>
-        </li>
-      ))
+      whyUs.map((item) => {
+        const ItemIcon = ITEM_ICONS[item.id];
+
+        return (
+          <li
+            class:list={[
+              "flex min-h-52 flex-col border border-hairline bg-surface-subtle p-6 sm:p-8",
+              CARD_LAYOUT[item.id],
+            ]}
+          >
+            <div class="text-secondary-teal">
+              <ItemIcon
+                aria-hidden="true"
+                stroke-width={1.75}
+                class="size-7"
+              />
+            </div>
+            <div class="mt-auto pt-10">
+              <h3 class="text-lg">{item.title}</h3>
+              <p class="mt-2 max-w-[52ch] text-sm">{item.description}</p>
+            </div>
+          </li>
+        );
+      })
     }
   </ul>
 </Section>

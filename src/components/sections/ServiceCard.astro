@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
+import { ArrowUpRight } from "@lucide/astro";
 import type { ServiceCategory } from "../../data/services";
-import Icon from "../ui/Icon.astro";
 
 interface Props {
 	category: ServiceCategory;
@@ -64,8 +64,9 @@ const responsiveWidths = [
         class="group/title inline-flex items-center gap-2 decoration-secondary-teal underline-offset-4 hover:underline"
       >
         {category.title}
-        <Icon
-          name="arrow-up-right"
+        <ArrowUpRight
+          aria-hidden="true"
+          stroke-width={1.75}
           class="size-4 text-secondary-teal motion-safe:transition-transform motion-safe:group-hover/title:-translate-y-px motion-safe:group-hover/title:translate-x-px"
         />
       </a>

@@ -1,5 +1,5 @@
 ---
-import Icon from "./Icon.astro";
+import { ArrowUpRight } from "@lucide/astro";
 
 /**
  * Encodes the brand contrast rule in one place: secondary-teal is only 3.01:1 on
@@ -28,8 +28,9 @@ const variants = {
 	]}
 >
 	<slot />
-	<Icon
-		name="arrow-up-right"
+	<ArrowUpRight
+		aria-hidden="true"
+		stroke-width={1.75}
 		class="size-4 motion-safe:transition-transform motion-safe:group-hover:-translate-y-px motion-safe:group-hover:translate-x-px"
 	/>
 </a>

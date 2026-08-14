@@ -18,42 +18,36 @@ export const whyUs = [
 		title: "Fast turnaround times",
 		description:
 			"Efficient laboratory workflows help deliver the results you need without unnecessary delays.",
-		icon: "clock",
 	},
 	{
 		id: "technology",
 		title: "Advanced laboratory technology",
 		description:
 			"Modern analytical tools support careful testing across a wide range of toxicology applications.",
-		icon: "microscope",
 	},
 	{
 		id: "accuracy",
 		title: "Accurate and reliable results",
 		description:
 			"Evidence-based analysis produces dependable findings for informed clinical, legal, and workplace decisions.",
-		icon: "target",
 	},
 	{
 		id: "confidentiality",
 		title: "Strict confidentiality",
 		description:
 			"Sensitive information and test results are handled with care, discretion, and professionalism.",
-		icon: "lock",
 	},
 	{
 		id: "professionals",
 		title: "Experienced toxicology professionals",
 		description:
 			"Specialist knowledge guides every stage, from laboratory analysis to the interpretation of findings.",
-		icon: "professionals",
 	},
 	{
 		id: "quality",
 		title: "Quality-assured testing procedures",
 		description:
 			"Consistent processes and careful oversight help maintain high standards throughout every analysis.",
-		icon: "shield-check",
 	},
 ] as const;
 
