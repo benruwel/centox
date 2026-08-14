@@ -1,26 +1,27 @@
 ---
 import { Font } from "astro:assets";
 import openGraphImage from "../assets/open-graph.png";
+import ServiceViewTransitions from "../components/layout/ServiceViewTransitions.astro";
 import SiteHeader from "../components/layout/SiteHeader.astro";
 import Contact from "../components/sections/Contact.astro";
 import { siteConfig } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
-  title?: string;
-  description?: string;
+	title?: string;
+	description?: string;
 }
 
 const { title, description = siteConfig.description } = Astro.props;
 
 const pageTitle = title
-  ? `${title} | ${siteConfig.name}`
-  : siteConfig.defaultTitle;
+	? `${title} | ${siteConfig.name}`
+	: siteConfig.defaultTitle;
 const canonical = Astro.site
-  ? new URL(Astro.url.pathname, Astro.site).href
-  : undefined;
+	? new URL(Astro.url.pathname, Astro.site).href
+	: undefined;
 const openGraphImageUrl = new URL(openGraphImage.src, Astro.site ?? Astro.url)
-  .href;
+	.href;
 ---
 
 <!doctype html>
@@ -31,6 +32,7 @@ const openGraphImageUrl = new URL(openGraphImage.src, Astro.site ?? Astro.url)
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta name="theme-color" content="#2c3e50" />
+    <ServiceViewTransitions />
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />

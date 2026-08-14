@@ -5,8 +5,6 @@ import { defineConfig, fontProviders } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO(client): confirm the production domain. Until this is real, canonical and
-  // og:url tags are omitted rather than emitted wrong.
   site: "https://centoxkenya.com",
 
   adapter: cloudflare({

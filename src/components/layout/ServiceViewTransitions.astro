@@ -1,0 +1,68 @@
+<!--
+  This must run in the head before the first render. `pagereveal` is the only
+  opportunity to name elements in the incoming document before its transition
+  snapshots are captured, so this script is intentionally inline and blocking.
+-->
+<script is:inline>
+  (() => {
+    const SERVICES_PATH = "/services";
+    const PARTS = ["image", "title"];
+
+    const normalisePath = (pathname) => pathname.replace(/\/+$/, "") || "/";
+
+    const serviceIdFromUrl = (url) => {
+      if (normalisePath(url.pathname) !== SERVICES_PATH || !url.hash) {
+        return null;
+      }
+
+      try {
+        return decodeURIComponent(url.hash.slice(1));
+      } catch {
+        return null;
+      }
+    };
+
+    const findPart = (serviceId, part) =>
+      Array.from(
+        document.querySelectorAll(
+          `[data-service-transition][data-transition-part="${part}"]`,
+        ),
+      ).find((element) => element.dataset.serviceTransition === serviceId);
+
+    const nameSelectedService = (serviceId, cleanupPromise) => {
+      const namedElements = PARTS.flatMap((part) => {
+        const element = findPart(serviceId, part);
+        if (!element) return [];
+
+        element.style.viewTransitionName = `service-${part}`;
+        return [element];
+      });
+
+      Promise.resolve(cleanupPromise)
+        .catch(() => {})
+        .finally(() => {
+          for (const element of namedElements) {
+            element.style.viewTransitionName = "";
+          }
+        });
+    };
+
+    window.addEventListener("pageswap", (event) => {
+      if (!event.viewTransition || !event.activation?.entry?.url) return;
+
+      const serviceId = serviceIdFromUrl(new URL(event.activation.entry.url));
+      if (!serviceId) return;
+
+      nameSelectedService(serviceId, event.viewTransition.finished);
+    });
+
+    window.addEventListener("pagereveal", (event) => {
+      if (!event.viewTransition) return;
+
+      const serviceId = serviceIdFromUrl(new URL(window.location.href));
+      if (!serviceId) return;
+
+      nameSelectedService(serviceId, event.viewTransition.ready);
+    });
+  })();
+</script>

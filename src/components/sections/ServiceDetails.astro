@@ -3,23 +3,23 @@ import { Image } from "astro:assets";
 import type { ServiceCategory } from "../../data/services";
 
 interface Props {
-  category: ServiceCategory;
-  reverse?: boolean;
+	category: ServiceCategory;
+	reverse?: boolean;
 }
 
 const { category, reverse = false } = Astro.props;
 
 const responsiveWidths = [
-  320,
-  480,
-  640,
-  960,
-  1280,
-  1600,
-  category.image.width,
+	320,
+	480,
+	640,
+	960,
+	1280,
+	1600,
+	category.image.width,
 ].filter(
-  (width, index, widths) =>
-    width <= category.image.width && widths.indexOf(width) === index,
+	(width, index, widths) =>
+		width <= category.image.width && widths.indexOf(width) === index,
 );
 ---
 
@@ -32,6 +32,8 @@ const responsiveWidths = [
     <Image
       src={category.image}
       alt={category.imageAlt}
+      data-service-transition={category.sectionId}
+      data-transition-part="image"
       widths={responsiveWidths}
       sizes="(min-width: 1024px) 50vw, 100vw"
       loading="lazy"
@@ -40,7 +42,12 @@ const responsiveWidths = [
     />
 
     <div class:list={[reverse && "lg:order-1"]}>
-      <h2 id={`${category.sectionId}-heading`} class="text-2xl sm:text-3xl">
+      <h2
+        id={`${category.sectionId}-heading`}
+        data-service-transition={category.sectionId}
+        data-transition-part="title"
+        class="text-2xl sm:text-3xl"
+      >
         {category.title}
       </h2>
       <p class="mt-4 max-w-[60ch]">{category.longerDescription}</p>

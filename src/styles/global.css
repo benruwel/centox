@@ -1,5 +1,52 @@
 @import "tailwindcss";
 
+@view-transition {
+	navigation: auto;
+}
+
+/* The selected service image and title bridge the homepage and detail page. */
+::view-transition-group(service-image) {
+	animation-duration: 500ms;
+	animation-timing-function: ease-in-out;
+}
+
+::view-transition-group(service-title) {
+	animation-duration: 400ms;
+	animation-timing-function: ease-out;
+}
+
+::view-transition-old(service-image),
+::view-transition-new(service-image) {
+	height: 100%;
+	object-fit: cover;
+}
+
+::view-transition-old(service-title),
+::view-transition-new(service-title) {
+	mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 250ms;
+}
+
+/* Capture the source image in its resting state, not its hovered state. */
+html:active-view-transition a[data-transition-part="image"] > img {
+	transform: none;
+	opacity: 1;
+	transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation-duration: 0.01ms;
+		animation-delay: 0ms;
+	}
+}
+
 @theme {
 	/* brand */
 	--color-primary-slate: #2c3e50;

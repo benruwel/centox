@@ -42,6 +42,8 @@ const responsiveWidths = [
   <a
     href={href}
     aria-label={`Learn more about ${category.title}`}
+    data-service-transition={category.sectionId}
+    data-transition-part="image"
     class:list={[
       "group block aspect-video w-full overflow-hidden bg-ink",
       wide && "sm:aspect-auto sm:w-1/2 sm:self-stretch",
@@ -61,6 +63,8 @@ const responsiveWidths = [
     <h3 class="text-lg">
       <a
         href={href}
+        data-service-transition={category.sectionId}
+        data-transition-part="title"
         class="group/title inline-flex items-center gap-2 decoration-secondary-teal underline-offset-4 hover:underline"
       >
         {category.title}
