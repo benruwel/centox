@@ -1,0 +1,27 @@
+---
+import Container from "../components/ui/Container.astro";
+import CtaButton from "../components/ui/CtaButton.astro";
+import Layout from "../layouts/Layout.astro";
+
+const title = "Page not found";
+const description =
+	"The page you are looking for could not be found. Return to the CENTOX Kenya homepage to explore our toxicology testing and consulting services.";
+---
+
+<Layout title={title} description={description}>
+	<section class="flex min-h-[60vh] items-center border-t border-hairline py-20 md:py-28">
+		<Container>
+			<p class="font-display text-sm font-semibold tracking-[0.14em] text-secondary-teal">
+				404
+			</p>
+			<h1 class="mt-5 max-w-2xl text-4xl leading-tight sm:text-5xl">
+				Page not found<span class="text-secondary-teal">.</span>
+			</h1>
+			<p class="mt-6 max-w-[58ch] text-lg leading-8">
+				The page you’re looking for may have moved, been removed, or never existed.
+				Return to our homepage to continue exploring CENTOX Kenya.
+			</p>
+			<CtaButton href="/" class="mt-10">Back to homepage</CtaButton>
+		</Container>
+	</section>
+</Layout>
