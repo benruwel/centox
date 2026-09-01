@@ -1,35 +1,35 @@
 ---
-import logo from "../../assets/centox-logo.svg";
+import logo from "../../assets/centox-standard-logo.svg";
+import darkLogo from "../../assets/centox-standard-logo-dark.svg";
 import { SECTION_IDS, siteConfig } from "../../data/site";
 
 interface Props {
-  tone?: "light" | "dark";
-  class?: string;
+	tone?: "light" | "dark";
+	height?: "compact" | "large";
+	class?: string;
 }
 
-const { tone = "light", class: className = "" } = Astro.props;
+const {
+	tone = "light",
+	height = "compact",
+	class: className = "",
+} = Astro.props;
+const selectedLogo = tone === "dark" ? darkLogo : logo;
+const heightClass = height === "large" ? "h-12" : "h-8";
 ---
 
 <a
   href={`/#${SECTION_IDS.hero}`}
   aria-label={`${siteConfig.name}, home`}
-  class:list={["inline-flex items-center gap-2.5", className]}
+  class:list={["inline-flex items-center", className]}
 >
   <img
-    src={logo.src}
+    src={selectedLogo.src}
     alt=""
-    width={logo.width}
-    height={logo.height}
+    width={selectedLogo.width}
+    height={selectedLogo.height}
     loading="eager"
     decoding="sync"
-    class="h-7 w-auto"
+    class:list={[heightClass, "w-auto"]}
   />
-  <span
-    class:list={[
-      "font-display text-base font-extrabold tracking-tight sm:text-lg",
-      tone === "dark" ? "text-white" : "text-primary-slate",
-    ]}
-  >
-    CENTOX KENYA
-  </span>
 </a>

@@ -8,7 +8,7 @@ export const hero = {
   tagline: "Accurate. Reliable. Timely.",
   headline: "Your Trusted Partner in Toxicology Solutions",
   intro:
-    " We are a multidisciplinary scientific consulting firm that strives to develop innovative solutions to address the scientific, technical, and regulatory challenges confronting our clients. We have a reputation for applying sound science and novel approaches tailored to meet the specific needs of our clients, whether a rapid response or a comprehensive analysis is required.",
+    " We are a multidisciplinary scientific consulting firm in toxicology that strives to develop innovative solutions to address the scientific, technical, and regulatory challenges confronting our clients. We have a reputation for applying sound science and novel approaches tailored to meet the specific needs of our clients, whether a rapid response or a comprehensive analysis is required.",
   cta: { label: "Get in touch", href: `#${SECTION_IDS.contact}` },
 } as const;
 
