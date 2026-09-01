@@ -66,6 +66,20 @@ const openGraphImageUrl = new URL(openGraphImage.src, Astro.site ?? Astro.url)
     <Font cssVariable="--font-work-sans" preload />
     <Font cssVariable="--font-montserrat" />
 
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-N46CSGP57T"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-N46CSGP57T");
+    </script>
+
     {
       /* Valid only in <head>: keeps the mobile nav usable without JS. Unlayered
 		!important is needed to beat preflight's layered `[hidden] { display: none !important }`. */
