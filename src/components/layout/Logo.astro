@@ -4,18 +4,18 @@ import darkLogo from "../../assets/centox-standard-logo-dark.svg";
 import { SECTION_IDS, siteConfig } from "../../data/site";
 
 interface Props {
-	tone?: "light" | "dark";
-	height?: "compact" | "large";
-	class?: string;
+  tone?: "light" | "dark";
+  height?: "compact" | "large";
+  class?: string;
 }
 
 const {
-	tone = "light",
-	height = "compact",
-	class: className = "",
+  tone = "light",
+  height = "compact",
+  class: className = "",
 } = Astro.props;
 const selectedLogo = tone === "dark" ? darkLogo : logo;
-const heightClass = height === "large" ? "h-12" : "h-8";
+const heightClass = height === "large" ? "h-16" : "h-8";
 ---
 
 <a

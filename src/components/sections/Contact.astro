@@ -1,73 +1,105 @@
 ---
 import {
-	closingLine,
-	contact,
-	contactHref,
-	SECTION_IDS,
-	siteConfig,
+  closingLine,
+  contact,
+  contactHref,
+  SECTION_IDS,
+  siteConfig,
 } from "../../data/site";
 import Logo from "../layout/Logo.astro";
 import Container from "../ui/Container.astro";
 import Eyebrow from "../ui/Eyebrow.astro";
+
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/centoxapp" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/centre-of-toxicology-and-applied-research/about/",
+  },
+  {
+    label: "WhatsApp",
+    href: "https://api.whatsapp.com/send?phone=%2B254734000500",
+  },
+] as const;
 ---
 
-{/*
+{
+  /*
 	Text colour sits on this wrapper and inherits into <p>/<dd> because global.css
 	deliberately puts colour on `body` and never on `p`. The <h2> needs an explicit
 	text-white to beat the base h1–h3 colour rule.
-*/}
+*/
+}
 <footer id={SECTION_IDS.contact} class="scroll-mt-24 bg-ink text-muted-invert">
-	<Container class="py-20 md:py-28">
-		<div class="grid gap-16 lg:grid-cols-2 lg:gap-20">
-			<div>
-				<Eyebrow label="Contact" tone="dark" />
-				<h2 class="mt-6 max-w-xl text-3xl text-white sm:text-4xl">
-					Interested in working with us? Let's get in touch<span class="text-secondary-teal">.</span>
-				</h2>
-				<p class="mt-6 max-w-[55ch]">{siteConfig.longName}</p>
-			</div>
+  <Container class="py-20 md:py-28">
+    <div class="grid gap-16 lg:grid-cols-2 lg:gap-20">
+      <div>
+        <Eyebrow label="Contact" tone="dark" />
+        <h2 class="mt-6 max-w-xl text-3xl text-white sm:text-4xl">
+          Interested in working with us? Let's get in touch<span
+            class="text-secondary-teal">.</span
+          >
+        </h2>
+        <p class="mt-6 max-w-[55ch]">{siteConfig.longName}</p>
+      </div>
 
-			<dl class="grid gap-8 sm:grid-cols-2">
-				{
-					contact.map((channel) => {
-						const href = contactHref(channel);
-						return (
-							<div>
-								<dt class="text-xs font-medium uppercase tracking-[0.14em] text-secondary-teal">
-									{channel.label}
-								</dt>
-								<dd class="mt-2">
-									{href ? (
-										<a
-											href={href}
-											class="text-white underline decoration-secondary-teal underline-offset-4"
-										>
-											{channel.value}
-										</a>
-									) : (
-										<span class="flex flex-col items-start gap-1.5">
-											<span class="border border-dashed border-muted-invert/40 px-1.5 py-0.5 text-[0.625rem] font-semibold uppercase tracking-wider text-secondary-teal">
-												TODO
-											</span>
-											<span class="font-mono text-xs text-muted-invert/70">
-												{channel.placeholder}
-											</span>
-											<span class="sr-only">not yet provided</span>
-										</span>
-									)}
-								</dd>
-							</div>
-						);
-					})
-				}
-			</dl>
-		</div>
+      <div>
+        <dl class="grid gap-8 sm:grid-cols-2">
+          {
+            contact.map((channel) => {
+              const href = contactHref(channel);
+              return (
+                <div>
+                  <dt class="text-xs font-medium uppercase tracking-[0.14em] text-secondary-teal">
+                    {channel.label}
+                  </dt>
+                  <dd class="mt-2">
+                    <a
+                      href={href}
+                      class="text-white underline decoration-secondary-teal underline-offset-4"
+                    >
+                      {channel.value}
+                    </a>
+                  </dd>
+                </div>
+              );
+            })
+          }
+        </dl>
 
-		<div
-			class="mt-20 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
-		>
-			<Logo tone="dark" height="large" />
-			<p class="text-sm">{closingLine}</p>
-		</div>
-	</Container>
+        <div class="mt-8">
+          <p
+            class="text-xs font-medium uppercase tracking-[0.14em] text-secondary-teal"
+          >
+            Socials
+          </p>
+          <nav aria-label="Social media" class="mt-2">
+            <ul role="list" class="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              {
+                socialLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-white underline decoration-secondary-teal underline-offset-4 motion-safe:transition-colors hover:text-secondary-teal"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mt-20 flex flex-col gap-6 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
+    >
+      <Logo tone="dark" height="large" />
+      <p class="text-sm">{closingLine}</p>
+    </div>
+  </Container>
 </footer>
