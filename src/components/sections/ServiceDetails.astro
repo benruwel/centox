@@ -9,6 +9,14 @@ interface Props {
 
 const { category, reverse = false } = Astro.props;
 
+const itemColumns = category.items.reduce<[string[], string[]]>(
+	(columns, item, index) => {
+		columns[index % 2].push(item);
+		return columns;
+	},
+	[[], []],
+);
+
 const responsiveWidths = [
 	320,
 	480,
@@ -52,19 +60,23 @@ const responsiveWidths = [
       </h2>
       <p class="mt-4 max-w-[60ch]">{category.longerDescription}</p>
 
-      <ul role="list" class="mt-4 grid gap-3 sm:grid-cols-2">
+      <div class="mt-4 grid gap-3 sm:grid-cols-2">
         {
-          category.items.map((item) => (
-            <li class="flex gap-3 text-sm">
-              <span
-                aria-hidden="true"
-                class="mt-[0.65em] size-1 shrink-0 rounded-full bg-secondary-teal"
-              />
-              <span>{item}</span>
-            </li>
+          itemColumns.map((items) => (
+            <ul role="list" class="grid content-start gap-3">
+              {items.map((item) => (
+                <li class="flex gap-3 text-sm">
+                  <span
+                    aria-hidden="true"
+                    class="mt-[0.65em] size-1 shrink-0 rounded-full bg-secondary-teal"
+                  />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           ))
         }
-      </ul>
+      </div>
     </div>
   </div>
 </article>
