@@ -21,9 +21,9 @@ export const siteConfig = {
 	name: "CENTOX Kenya",
 	longName: "Centre of Toxicology and Applied Research",
 	tagline: "Accurate. Reliable. Timely.",
-	defaultTitle: "CENTOX Kenya — Toxicology Testing Services",
+	defaultTitle: "CENTOX Kenya — Toxicology Solutions",
 	description:
-		"CENTOX Kenya provides high-quality toxicology testing for healthcare providers, employers, legal professionals, and individuals — accurate, confidential, timely.",
+		"CENTOX Kenya provides high-quality toxicology solutions for healthcare providers, employers, legal professionals, and individuals — accurate, confidential, timely.",
 } as const;
 
 export const navLinks = [
