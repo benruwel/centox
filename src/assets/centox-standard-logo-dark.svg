@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.2 57.14">
+<svg id="centox-standard-logo-dark" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 276.2 57.14">
   <defs>
     <style>
       .cls-1 {
@@ -26,13 +26,13 @@
         letter-spacing: 0em;
       }
 
-      .cls-7 {
-        font-family: WorkSans-SemiBold, 'Work Sans';
+      #centox-standard-logo-dark .cls-7 {
+        font-family: var(--font-work-sans);
         font-size: 9.28px;
         font-weight: 600;
       }
 
-      .cls-7, .cls-8 {
+      #centox-standard-logo-dark .cls-7, #centox-standard-logo-dark .cls-8 {
         fill: #fff;
       }
 
@@ -56,10 +56,9 @@
         letter-spacing: -.01em;
       }
 
-      .cls-8 {
-        font-family: Montserrat-Bold, Montserrat;
+      #centox-standard-logo-dark .cls-8 {
+        font-family: var(--font-montserrat);
         font-size: 24.3px;
-        font-variation-settings: 'wght' 700;
         font-weight: 700;
       }
 
