@@ -91,3 +91,55 @@ export const whoWeServe = [
 
 export const commitment =
   "We are committed to delivering dependable toxicology testing that supports informed medical, legal, and workplace decisions while maintaining the highest standards of quality and professionalism.";
+
+export const purpose = {
+  vision:
+    "To become a leading and trusted provider of toxicology, chemical safety, and risk assessment solutions in Africa, contributing to a healthier, safer, and more sustainable future.",
+  mission:
+    "To be a trusted partner in toxicology and chemical safety by delivering scientifically sound, innovative, and cost-effective assessment services that protect human health, ensure product safety, support regulatory compliance, and promote environmental sustainability across Africa.",
+} as const;
+
+export const coreValues = [
+  {
+    id: "excellence",
+    title: "Scientific Excellence",
+    description:
+      "Delivering evidence-based, scientifically rigorous toxicological assessments.",
+  },
+  {
+    id: "integrity",
+    title: "Integrity",
+    description:
+      "Maintaining honesty, transparency, and professional ethics in every engagement.",
+  },
+  {
+    id: "health",
+    title: "Human Health Protection",
+    description:
+      "Prioritising the safety and well-being of people and communities.",
+  },
+  {
+    id: "environment",
+    title: "Environmental Responsibility",
+    description:
+      "Promoting responsible chemical management and environmental sustainability.",
+  },
+  {
+    id: "innovation",
+    title: "Innovation",
+    description:
+      "Applying modern scientific approaches to solve complex toxicological challenges.",
+  },
+  {
+    id: "client",
+    title: "Client-Centred Service",
+    description:
+      "Providing practical, reliable, and cost-effective solutions tailored to clients' needs.",
+  },
+  {
+    id: "compliance",
+    title: "Regulatory Compliance",
+    description:
+      "Supporting clients in meeting applicable national and international safety requirements.",
+  },
+] as const;

@@ -1,6 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import heroImage from "../../assets/hero-image.png";
+import HeroImage from "../../assets/hero-image.svg";
 import { hero } from "../../data/sections";
 import { SECTION_IDS } from "../../data/site";
 import Container from "../ui/Container.astro";
@@ -24,14 +23,10 @@ import CtaButton from "../ui/CtaButton.astro";
       <p class="mt-6 max-w-[60ch] text-lg md:text-xl">{hero.intro}</p>
       <CtaButton href={hero.cta.href} class="mt-10">{hero.cta.label}</CtaButton>
     </div>
-		<Image
-			src={heroImage}
-			alt=""
-			widths={[480, 640, 778, 960, 1280, 1600, 1920, 2560, 3112]}
-			sizes="(min-width: 1024px) 50vw, calc(100vw - 2rem)"
-			loading="eager"
-			decoding="async"
-			class="w-full lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2 lg:object-contain lg:object-right"
+		<HeroImage
+			aria-hidden="true"
+			preserveAspectRatio="xMaxYMid meet"
+			class="h-auto w-full max-w-xl justify-self-end"
 		/>
   </Container>
 </section>

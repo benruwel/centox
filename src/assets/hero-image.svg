@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1338 1454">
+  <defs>
+    <style>
+      .hero-cls-1 {
+        stroke: #9a9a9a;
+        stroke-width: 2.4px;
+      }
+
+      .hero-cls-1, .hero-cls-2, .hero-cls-3 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .hero-cls-4 {
+        fill: #4da29e;
+      }
+
+      .hero-cls-4, .hero-cls-5, .hero-cls-6, .hero-cls-7 {
+        stroke: #fff;
+        stroke-miterlimit: 8;
+        stroke-width: 6px;
+      }
+
+      .hero-cls-2 {
+        stroke: #2c3e50;
+      }
+
+      .hero-cls-2, .hero-cls-3 {
+        stroke-width: 10px;
+      }
+
+      .hero-cls-5 {
+        fill: #2c3e50;
+      }
+
+      .hero-cls-6 {
+        fill: #e2e2e2;
+      }
+
+      .hero-cls-3 {
+        stroke: #4da29e;
+      }
+
+      .hero-cls-7 {
+        fill: #3392b5;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g id="edges-gray">
+        <polyline class="hero-cls-1" points="611 27 477 27 377 143 377 259"/>
+        <line class="hero-cls-1" x1="611" y1="27" x2="843" y2="27"/>
+        <polyline class="hero-cls-1" points="843 27 961 143 1077 259"/>
+        <line class="hero-cls-1" x1="1077" y1="27" x2="1311" y2="27"/>
+        <polyline class="hero-cls-1" points="1077 27 961 143 843 259"/>
+        <polyline class="hero-cls-1" points="1311 27 1193 143 1077 259"/>
+        <line class="hero-cls-1" x1="1311" y1="27" x2="1311" y2="725"/>
+        <line class="hero-cls-1" x1="1311" y1="725" x2="1311" y2="959"/>
+        <line class="hero-cls-1" x1="493" y1="143" x2="727" y2="143"/>
+        <polyline class="hero-cls-1" points="493 143 611 259 493 375"/>
+        <line class="hero-cls-1" x1="493" y1="143" x2="377" y2="259"/>
+        <line class="hero-cls-1" x1="727" y1="143" x2="611" y2="259"/>
+        <line class="hero-cls-1" x1="377" y1="259" x2="1077" y2="259"/>
+        <polyline class="hero-cls-1" points="261 375 261 245 377 143"/>
+        <polyline class="hero-cls-1" points="143 493 143 359 261 245"/>
+        <polyline class="hero-cls-1" points="27 609 27 475 143 359 493 375"/>
+        <line class="hero-cls-1" x1="143" y1="493" x2="377" y2="493"/>
+        <line class="hero-cls-1" x1="611" y1="493" x2="843" y2="493"/>
+        <line class="hero-cls-1" x1="493" y1="375" x2="493" y2="609"/>
+        <polyline class="hero-cls-1" points="493 375 611 375 727 259"/>
+        <line class="hero-cls-1" x1="611" y1="493" x2="727" y2="375"/>
+        <polyline class="hero-cls-1" points="961 375 961 493 843 609 727 609"/>
+        <line class="hero-cls-1" x1="961" y1="375" x2="843" y2="493"/>
+        <polyline class="hero-cls-1" points="1193 375 1077 493 961 609 843 725"/>
+        <line class="hero-cls-1" x1="1193" y1="375" x2="1311" y2="259"/>
+        <line class="hero-cls-1" x1="1193" y1="143" x2="1193" y2="1075"/>
+        <line class="hero-cls-1" x1="1077" y1="259" x2="1077" y2="959"/>
+        <line class="hero-cls-1" x1="1077" y1="259" x2="1193" y2="375"/>
+        <line class="hero-cls-1" x1="611" y1="609" x2="611" y2="725"/>
+        <line class="hero-cls-1" x1="611" y1="609" x2="727" y2="493"/>
+        <line class="hero-cls-1" x1="377" y1="725" x2="611" y2="725"/>
+        <line class="hero-cls-1" x1="261" y1="609" x2="377" y2="493"/>
+        <polyline class="hero-cls-1" points="143 725 143 593 261 493"/>
+        <line class="hero-cls-1" x1="143" y1="609" x2="261" y2="609"/>
+        <line class="hero-cls-1" x1="27" y1="725" x2="27" y2="1075"/>
+        <line class="hero-cls-1" x1="27" y1="843" x2="261" y2="843"/>
+        <line class="hero-cls-1" x1="27" y1="1075" x2="261" y2="1075"/>
+        <line class="hero-cls-1" x1="261" y1="843" x2="261" y2="1193"/>
+        <line class="hero-cls-1" x1="261" y1="843" x2="377" y2="959"/>
+        <line class="hero-cls-1" x1="261" y1="843" x2="377" y2="725"/>
+        <line class="hero-cls-1" x1="143" y1="959" x2="377" y2="959"/>
+        <line class="hero-cls-1" x1="377" y1="959" x2="493" y2="843"/>
+        <line class="hero-cls-1" x1="493" y1="609" x2="493" y2="843"/>
+        <line class="hero-cls-1" x1="611" y1="959" x2="843" y2="959"/>
+        <line class="hero-cls-1" x1="843" y1="725" x2="843" y2="1309"/>
+        <line class="hero-cls-1" x1="843" y1="959" x2="961" y2="843"/>
+        <line class="hero-cls-1" x1="961" y1="843" x2="1077" y2="725"/>
+        <line class="hero-cls-1" x1="961" y1="843" x2="1193" y2="609"/>
+        <polyline class="hero-cls-1" points="961 375 961 599 843 725"/>
+        <line class="hero-cls-1" x1="493" y1="1075" x2="727" y2="1075"/>
+        <line class="hero-cls-1" x1="493" y1="1075" x2="611" y2="959"/>
+        <line class="hero-cls-1" x1="727" y1="1075" x2="611" y2="1193"/>
+        <polyline class="hero-cls-1" points="961 1075 961 1193 843 1309 727 1309"/>
+        <line class="hero-cls-1" x1="961" y1="1075" x2="1077" y2="959"/>
+        <line class="hero-cls-1" x1="1193" y1="1075" x2="1193" y2="843"/>
+        <line class="hero-cls-1" x1="1077" y1="725" x2="1077" y2="959"/>
+        <line class="hero-cls-1" x1="843" y1="1193" x2="843" y2="1309"/>
+        <line class="hero-cls-1" x1="727" y1="1309" x2="843" y2="1193"/>
+        <line class="hero-cls-1" x1="261" y1="1193" x2="377" y2="1193"/>
+        <line class="hero-cls-1" x1="143" y1="1193" x2="261" y2="1075"/>
+        <line class="hero-cls-1" x1="377" y1="1193" x2="493" y2="1075"/>
+        <line class="hero-cls-1" x1="377" y1="1193" x2="377" y2="1427"/>
+        <line class="hero-cls-1" x1="611" y1="1193" x2="611" y2="1427"/>
+        <line class="hero-cls-1" x1="261" y1="1309" x2="493" y2="1309"/>
+        <line class="hero-cls-1" x1="261" y1="1309" x2="143" y2="1427"/>
+        <line class="hero-cls-1" x1="377" y1="1309" x2="493" y2="1193"/>
+        <line class="hero-cls-1" x1="493" y1="1309" x2="611" y2="1427"/>
+        <line class="hero-cls-1" x1="493" y1="1309" x2="377" y2="1427"/>
+        <line class="hero-cls-1" x1="261" y1="1309" x2="377" y2="1193"/>
+        <line class="hero-cls-1" x1="261" y1="1427" x2="377" y2="1309"/>
+        <polyline class="hero-cls-1" points="27 1309 159 1309 261 1209"/>
+        <line class="hero-cls-1" x1="143" y1="1427" x2="261" y2="1309"/>
+        <polyline class="hero-cls-1" points="611 1427 727 1427 843 1309"/>
+        <line class="hero-cls-1" x1="961" y1="1193" x2="1077" y2="1075"/>
+        <line class="hero-cls-1" x1="1077" y1="1193" x2="961" y2="1309"/>
+      </g>
+      <g id="edges-green">
+        <polyline id="path-a" class="hero-cls-3" points="843 27 727 143 843 259 727 375 493 375 377 259"/>
+        <polyline id="path-a2" class="hero-cls-3" points="493 375 377 493 377 629 277 725 143 725"/>
+        <polyline id="path-b" class="hero-cls-2" points="843 493 727 609 727 843 493 843 611 959 477 959 377 1059 377 1193 143 1193 27 1309"/>
+        <polyline id="path-c" class="hero-cls-3" points="1311 725 1193 843 1077 959 1077 1193 843 1427"/>
+      </g>
+      <g id="gray">
+        <circle class="hero-cls-6" cx="1311" cy="27" r="24"/>
+        <circle class="hero-cls-6" cx="493" cy="143" r="24"/>
+        <circle class="hero-cls-6" cx="1193" cy="143" r="24"/>
+        <circle class="hero-cls-6" cx="611" cy="259" r="24"/>
+        <circle class="hero-cls-6" cx="1077" cy="259" r="24"/>
+        <circle class="hero-cls-6" cx="1311" cy="259" r="24"/>
+        <circle class="hero-cls-6" cx="261" cy="375" r="24"/>
+        <circle class="hero-cls-6" cx="961" cy="375" r="24"/>
+        <circle class="hero-cls-6" cx="611" cy="493" r="24"/>
+        <circle class="hero-cls-6" cx="1077" cy="493" r="24"/>
+        <circle class="hero-cls-6" cx="1311" cy="493" r="24"/>
+        <circle class="hero-cls-6" cx="27" cy="609" r="24"/>
+        <circle class="hero-cls-6" cx="261" cy="609" r="24"/>
+        <circle class="hero-cls-6" cx="493" cy="609" r="24"/>
+        <circle class="hero-cls-6" cx="961" cy="609" r="24"/>
+        <circle class="hero-cls-6" cx="1193" cy="609" r="24"/>
+        <circle class="hero-cls-6" cx="611" cy="725" r="24"/>
+        <circle class="hero-cls-6" cx="843" cy="725" r="24"/>
+        <circle class="hero-cls-6" cx="27" cy="843" r="24"/>
+        <circle class="hero-cls-6" cx="261" cy="843" r="24"/>
+        <circle class="hero-cls-6" cx="961" cy="843" r="24"/>
+        <circle class="hero-cls-6" cx="143" cy="959" r="24"/>
+        <circle class="hero-cls-6" cx="377" cy="959" r="24"/>
+        <circle class="hero-cls-6" cx="843" cy="959" r="24"/>
+        <circle class="hero-cls-6" cx="1311" cy="959" r="24"/>
+        <circle class="hero-cls-6" cx="27" cy="1075" r="24"/>
+        <circle class="hero-cls-6" cx="261" cy="1075" r="24"/>
+        <circle class="hero-cls-6" cx="493" cy="1075" r="24"/>
+        <circle class="hero-cls-6" cx="1193" cy="1075" r="24"/>
+        <circle class="hero-cls-6" cx="611" cy="1193" r="24"/>
+        <circle class="hero-cls-6" cx="843" cy="1193" r="24"/>
+        <circle class="hero-cls-6" cx="261" cy="1309" r="24"/>
+        <circle class="hero-cls-6" cx="493" cy="1309" r="24"/>
+        <circle class="hero-cls-6" cx="727" cy="1309" r="24"/>
+        <circle class="hero-cls-6" cx="143" cy="1427" r="24"/>
+        <circle class="hero-cls-6" cx="377" cy="1427" r="24"/>
+        <circle class="hero-cls-6" cx="611" cy="1427" r="24"/>
+      </g>
+      <circle class="hero-cls-7" cx="843" cy="27" r="24"/>
+      <circle class="hero-cls-7" cx="727" cy="143" r="24"/>
+      <circle class="hero-cls-7" cx="377" cy="259" r="24"/>
+      <circle class="hero-cls-7" cx="843" cy="259" r="24"/>
+      <circle class="hero-cls-7" cx="727" cy="375" r="24"/>
+      <circle class="hero-cls-7" cx="377" cy="493" r="24"/>
+      <circle class="hero-cls-7" cx="843" cy="493" r="24"/>
+      <circle class="hero-cls-7" cx="727" cy="609" r="24"/>
+      <circle class="hero-cls-7" cx="1311" cy="725" r="24"/>
+      <circle class="hero-cls-7" cx="493" cy="843" r="24"/>
+      <circle class="hero-cls-7" cx="727" cy="843" r="24"/>
+      <circle class="hero-cls-7" cx="1193" cy="843" r="24"/>
+      <circle class="hero-cls-7" cx="611" cy="959" r="24"/>
+      <circle class="hero-cls-7" cx="1077" cy="959" r="24"/>
+      <circle class="hero-cls-7" cx="143" cy="1193" r="24"/>
+      <g id="pink">
+        <circle class="hero-cls-4" cx="611" cy="27" r="24"/>
+        <circle class="hero-cls-4" cx="961" cy="143" r="24"/>
+        <circle class="hero-cls-4" cx="1193" cy="375" r="24"/>
+        <circle class="hero-cls-4" cx="1077" cy="725" r="24"/>
+        <circle class="hero-cls-4" cx="727" cy="1075" r="24"/>
+      </g>
+      <g id="yellow">
+        <circle class="hero-cls-5" cx="1077" cy="27" r="24"/>
+        <circle class="hero-cls-5" cx="143" cy="493" r="24"/>
+        <circle class="hero-cls-5" cx="377" cy="725" r="24"/>
+        <circle class="hero-cls-5" cx="961" cy="1075" r="24"/>
+      </g>
+      <g id="orange">
+        <circle class="hero-cls-5" cx="493" cy="375" r="24"/>
+        <circle class="hero-cls-5" cx="377" cy="1193" r="24"/>
+        <circle class="hero-cls-5" cx="1077" cy="1193" r="24"/>
+      </g>
+      <g id="red">
+        <circle class="hero-cls-4" cx="143" cy="725" r="24"/>
+        <circle class="hero-cls-4" cx="27" cy="1309" r="24"/>
+        <circle class="hero-cls-4" cx="843" cy="1427" r="24"/>
+      </g>
+    </g>
+  </g>
+</svg>

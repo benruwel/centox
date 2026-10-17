@@ -1,0 +1,79 @@
+---
+title: "HBEL and PDE Toxicological Assessment: A Practical Guide for Pharmaceutical Manufacturers"
+description: "What a health-based exposure limit is, how a permitted daily exposure is derived, and what a regulator expects to see in the file."
+pubDate: 2026-10-17
+author: "CENTOX Kenya"
+tags: ["Industrial Toxicology", "Consulting and Compliance"]
+image:
+  src: "../assets/pharmaceutical.jpg"
+  alt: "Assorted capsules and tablets in red, orange, green, white and yellow scattered across a dark surface."
+---
+
+If your facility makes more than one product on shared equipment, you need a defensible answer to one question: how much residue of product A can safely end up in product B? Health-based exposure limits (HBELs) give you that answer, and the permitted daily exposure (PDE) is the most common way to express one. This post covers what an HBEL is, how a PDE is derived, and what a regulator expects to see in the file.
+
+## What is an HBEL?
+
+An HBEL is a dose of a substance that is unlikely to cause an adverse effect in any patient exposed to it every day for a lifetime. It is derived from toxicological and pharmacological data, not from manufacturing convenience. The PDE is the best-known HBEL. Related terms you will meet in the literature include the acceptable daily exposure (ADE) and, for occupational settings, the occupational exposure limit (OEL). They answer different questions and should not be swapped:
+
+- **PDE / ADE:** protects the patient who receives the next product from carryover.
+- **OEL:** protects the worker handling the material in the plant.
+
+## Why it matters
+
+The EU GMP framework (Chapters 3 and 5) requires that cross-contamination risk in shared facilities is controlled on the basis of a toxicological evaluation. The EMA guideline on setting HBELs, in effect since 2015, made the PDE the expected basis for this evaluation. Older approaches, such as the 1/1000th of the minimum therapeutic dose rule or the 10 ppm carryover rule, are no longer accepted as stand-alone justification because they can be too lenient for potent compounds and needlessly strict for benign ones.
+
+For manufacturers supplying export markets or working to PIC/S-aligned standards, an HBEL file for each product in a shared train is now routine inspection material. Local requirements vary, so confirm the expectations of the regulator and customers relevant to your product.
+
+## How a PDE is derived
+
+The calculation is simple. The work is in choosing the inputs.
+
+**PDE (mg/day) = NOAEL x body weight / (F1 x F2 x F3 x F4 x F5)**
+
+The default body weight is 50 kg. The point of departure is normally the no-observed-adverse-effect level (NOAEL) from the most relevant and sensitive study. If no NOAEL exists, a LOAEL or benchmark dose may be used with a larger adjustment factor.
+
+The five factors account for uncertainty:
+
+| Factor | Purpose                           | Typical range                 |
+| ------ | --------------------------------- | ----------------------------- |
+| F1     | Extrapolation between species     | 1 to 12, depending on species |
+| F2     | Variability between individuals   | 10                            |
+| F3     | Short study duration              | 1 to 10                       |
+| F4     | Severity of the toxicity observed | 1 to 10                       |
+| F5     | Use of a LOAEL instead of a NOAEL | 1 to 10                       |
+
+The assessor must justify each factor in writing. Defaults are acceptable only when the data do not support a refinement.
+
+## What the toxicological assessment involves
+
+A sound assessment is a structured review, not a lookup.
+
+1. **Hazard identification.** Search the literature, regulatory dossiers, and pharmacology and toxicology data for all relevant endpoints: repeat-dose toxicity, genotoxicity, carcinogenicity, reproductive and developmental toxicity, and sensitisation.
+2. **Critical effect selection.** Identify the most sensitive adverse effect that is relevant to humans, and the study that characterises it best.
+3. **Point of departure.** Select the NOAEL, LOAEL or benchmark dose, with the reasoning documented.
+4. **Adjustment factors.** Apply F1 to F5, with a rationale for each.
+5. **Special cases.** Genotoxic impurities, highly sensitising compounds, biologics, and products with no clinical data each need dedicated treatment. Some compounds cannot be managed through cleaning limits alone and need dedicated facilities.
+6. **Report and review.** Document the sources, decisions and uncertainties, sign the report, and schedule re-evaluation when new data appear.
+
+## From PDE to cleaning limit
+
+The PDE feeds directly into cleaning validation. The maximum allowable carryover (MACO) for a product pair is commonly calculated as:
+
+**MACO = PDE of previous product x minimum batch size of next product / maximum daily dose of next product**
+
+This is then converted into a surface residue limit using the shared equipment surface area, and into swab and rinse acceptance criteria. Because the limit comes from the PDE, a change in the toxicological data flows through to every affected cleaning program. That is one reason to keep the assessment current rather than treating it as a one-time document.
+
+## Common gaps found in HBEL files
+
+- No documented literature search strategy or cut-off date.
+- Adjustment factors applied without justification.
+- A PDE copied from a vendor safety data sheet with no independent review.
+- No consideration of the most sensitive endpoint, such as reproductive toxicity.
+- Cleaning limits not updated after the PDE changed.
+- Assessor qualifications and independence not recorded.
+
+## Working with CENTOX Kenya
+
+CENTOX Kenya supports manufacturers with exposure limit derivation, cleaning validation support and risk assessment as part of our industrial toxicology and compliance services. Whether you need a single PDE for a new product or a review of an existing set of HBEL files, we tailor the scope to the question at hand.
+
+To discuss your products and timelines, contact us at [info@centoxkenya.com](mailto:info@centoxkenya.com) or [+254 734 000 500](tel:+254734000500).

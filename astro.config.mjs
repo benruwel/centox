@@ -3,6 +3,8 @@ import cloudflare from "@astrojs/cloudflare";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://centoxkenya.com",
@@ -27,4 +29,6 @@ export default defineConfig({
       cssVariable: "--font-montserrat",
     },
   ],
+
+  integrations: [mdx()],
 });

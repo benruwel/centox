@@ -12,6 +12,8 @@ export const SECTION_IDS = {
 	whyUs: "why-us",
 	whoWeServe: "who-we-serve",
 	commitment: "commitment",
+	purpose: "purpose",
+	values: "values",
 	contact: "contact",
 } as const;
 
@@ -27,10 +29,10 @@ export const siteConfig = {
 } as const;
 
 export const navLinks = [
+	{ label: "Home", href: "/" },
+	{ label: "About", href: "/about" },
 	{ label: "Services", href: "/services" },
-	{ label: "Why Us", href: `/#${SECTION_IDS.whyUs}` },
-	{ label: "Who We Serve", href: `/#${SECTION_IDS.whoWeServe}` },
-	{ label: "Contact", href: `/#${SECTION_IDS.contact}` },
+	{ label: "Blogs", href: "/blogs" },
 ] as const satisfies readonly { label: string; href: string }[];
 
 export type ContactKind = "phone" | "email" | "website" | "address";

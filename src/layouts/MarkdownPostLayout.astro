@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import Container from "../components/ui/Container.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Layout from "./Layout.astro";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, description, pubDate, author, image, tags } = post.data;
+
+const formattedDate = pubDate.toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+---
+
+<Layout title={title} description={description}>
+  <article>
+    <header class="border-b border-hairline bg-surface-subtle py-16 md:py-24">
+      <Container>
+        <Eyebrow label="Blog" />
+        <h1 class="mt-6 max-w-3xl text-4xl sm:text-5xl">{title}</h1>
+        <p class="mt-6 text-sm">
+          <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+          {author && <span> · {author}</span>}
+        </p>
+        {
+          tags.length > 0 && (
+            <ul role="list" class="mt-6 flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <li class="border border-hairline bg-paper px-3 py-1 text-xs text-primary-slate">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )
+        }
+        {
+          image && (
+            <Image
+              src={image.src}
+              alt={image.alt}
+              widths={[640, 1024, 1440, 2048]}
+              sizes="(min-width: 80rem) 80rem, 100vw"
+              loading="eager"
+              fetchpriority="high"
+              class="mt-12 aspect-21/9 w-full border border-hairline object-cover"
+            />
+          )
+        }
+      </Container>
+    </header>
+
+    <Container>
+      <div class="mx-auto max-w-3xl py-16 md:py-24">
+        <div class="post-body">
+          <slot />
+        </div>
+      </div>
+    </Container>
+  </article>
+</Layout>
+
+<style>
+  .post-body {
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .post-body :global(> * + *) {
+    margin-top: 1.25em;
+  }
+
+  .post-body :global(h2),
+  .post-body :global(h3) {
+    margin-top: 2em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-primary-slate);
+  }
+
+  .post-body :global(h2) {
+    font-size: 1.5rem;
+  }
+
+  .post-body :global(h3) {
+    font-size: 1.25rem;
+  }
+
+  .post-body :global(a) {
+    color: var(--color-secondary-teal);
+    text-decoration: underline;
+  }
+
+  .post-body :global(ul) {
+    list-style: disc;
+    padding-left: 1.5em;
+  }
+
+  .post-body :global(ol) {
+    list-style: decimal;
+    padding-left: 1.5em;
+  }
+
+  .post-body :global(blockquote) {
+    border-left: 2px solid var(--color-secondary-teal);
+    padding-left: 1em;
+    font-style: italic;
+  }
+
+  .post-body :global(table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+
+  .post-body :global(th),
+  .post-body :global(td) {
+    border: 1px solid var(--color-hairline);
+    padding: 0.625em 0.875em;
+    text-align: left;
+  }
+
+  .post-body :global(th) {
+    background-color: var(--color-surface-subtle);
+    color: var(--color-primary-slate);
+    font-weight: 600;
+  }
+
+  .post-body :global(strong) {
+    color: var(--color-primary-slate);
+  }
+</style>

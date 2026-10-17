@@ -1,0 +1,55 @@
+---
+import {
+	ClipboardCheck,
+	FlaskConical,
+	Handshake,
+	HeartPulse,
+	Leaf,
+	Lightbulb,
+	Scale,
+} from "@lucide/astro";
+import { coreValues } from "../../data/sections";
+import { SECTION_IDS } from "../../data/site";
+import Section from "../ui/Section.astro";
+
+const VALUE_ICONS = {
+	excellence: FlaskConical,
+	integrity: Scale,
+	health: HeartPulse,
+	environment: Leaf,
+	innovation: Lightbulb,
+	client: Handshake,
+	compliance: ClipboardCheck,
+} as const;
+---
+
+<Section
+  id={SECTION_IDS.values}
+  eyebrow="Values"
+  heading="Our Core Values"
+  class="bg-surface-subtle"
+>
+  <ol role="list" class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      coreValues.map((value) => {
+        const ValueIcon = VALUE_ICONS[value.id];
+
+        return (
+          <li class="flex min-h-52 flex-col border border-hairline bg-paper p-6 sm:p-8">
+            <div class="text-secondary-teal">
+              <ValueIcon
+                aria-hidden="true"
+                stroke-width={1.75}
+                class="size-7"
+              />
+            </div>
+            <div class="mt-auto pt-10">
+              <h3 class="text-lg">{value.title}</h3>
+              <p class="mt-2 max-w-[52ch] text-sm">{value.description}</p>
+            </div>
+          </li>
+        );
+      })
+    }
+  </ol>
+</Section>

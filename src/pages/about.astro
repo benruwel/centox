@@ -1,0 +1,26 @@
+---
+import CoreValues from "../components/sections/CoreValues.astro";
+import Purpose from "../components/sections/Purpose.astro";
+import Container from "../components/ui/Container.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="About Us"
+  description="Learn about CENTOX Kenya's vision, mission, and the core values that guide our toxicology, chemical safety, and risk assessment work."
+>
+  <header class="border-b border-hairline bg-surface-subtle py-16 md:py-24">
+    <Container>
+      <Eyebrow label="Who we are" />
+      <h1 class="mt-6 max-w-3xl text-4xl sm:text-5xl">About Us</h1>
+      <p class="mt-6 max-w-2xl text-base md:text-lg">
+        Toxicology, chemical safety, and risk assessment for a healthier,
+        safer, and more sustainable Africa.
+      </p>
+    </Container>
+  </header>
+
+  <Purpose />
+  <CoreValues />
+</Layout>

@@ -1,0 +1,42 @@
+---
+import { Compass, Eye } from "@lucide/astro";
+import { purpose } from "../../data/sections";
+import { SECTION_IDS } from "../../data/site";
+import Section from "../ui/Section.astro";
+
+const statements = [
+	{ title: "Vision", icon: Eye, text: purpose.vision },
+	{ title: "Mission", icon: Compass, text: purpose.mission },
+];
+---
+
+<Section
+  id={SECTION_IDS.purpose}
+  eyebrow="Purpose"
+  heading="Our Vision and Mission"
+  divider={false}
+>
+  <div class="grid gap-2 md:grid-cols-2">
+    {
+      statements.map((statement) => {
+        const StatementIcon = statement.icon;
+
+        return (
+          <article class="flex flex-col border border-hairline bg-surface-subtle p-6 sm:p-10">
+            <div class="flex items-center gap-3 text-secondary-teal">
+              <StatementIcon
+                aria-hidden="true"
+                stroke-width={1.75}
+                class="size-7"
+              />
+              <h3 class="text-xl text-primary-slate">{statement.title}</h3>
+            </div>
+            <p class="mt-8 text-lg leading-8 text-primary-slate md:text-xl md:leading-9">
+              {statement.text}
+            </p>
+          </article>
+        );
+      })
+    }
+  </div>
+</Section>
